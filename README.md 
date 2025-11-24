@@ -1,0 +1,103 @@
+# Go-Moku Game – Java Project
+
+## Overview
+This project is an implementation of the **Go-Moku** (Five in a Row) game using Java.
+A human player competes against a computer opponent that selects a move randomly from the available legal moves.
+
+The project demonstrates:
+- Clean **Object-Oriented Design**
+- **Maven** project structure
+- **JUnit** tests for business logic
+- **Local SQL database** usage (SQLite)
+- Logging using `java.util.logging`
+- JavaDoc developer documentation
+- Usage of **Git** for version control
+- 2–3 implemented design patterns
+
+---
+
+## 🧩 Features
+
+### 🎮 Gameplay
+- One human player vs. AI player
+- NxM board size (default 15×15)
+- Real-time input validation
+- Full win-condition checking in all directions
+- Logging of all moves into `gomoku.log`
+
+### 🧠 AI Player
+- Chooses randomly from the list of available valid moves
+
+### 🗄 Database
+The game results are saved into a local SQLite database:
+- Winner’s name
+- Board size
+- Timestamp
+
+### 🧪 Testing
+JUnit tests cover:
+- Move placement logic
+- Win-checking logic
+- Board behavior and boundaries
+
+### 🧱 Design Patterns Used
+1. **Factory Pattern** – `PlayerFactory` creates Player / AIPlayer
+2. **Singleton Pattern** – `DatabaseManager`
+3. **Strategy Pattern (optional explanation)** – Different move strategies for Player and AIPlayer
+
+---
+
+## 📁 Project Structure
+
+src/
+├─ main/java/org/example/
+│ ├─ Game.java
+│ ├─ Board.java
+│ ├─ Player.java
+│ ├─ AIPlayer.java
+│ ├─ PlayerFactory.java
+│ ├─ DatabaseManager.java
+│ ├─ SymbolEnum.java
+│ └─ Main.java
+└─ test/java/
+└─ BoardTest.java
+
+---
+
+## 📚 JavaDoc
+JavaDoc documentation can be generated with:
+
+mvn javadoc:javadoc
+
+The generated documentation appears in:
+
+target/site/apidocs/
+
+---
+
+## 🛠 How to Run the Game
+
+1. Clone the repository:
+git clone https://github.com/nazaryansona/go-moku.git
+
+2. Open in IntelliJ IDEA
+3. Run `Main.java`
+
+---
+
+## 🧪 Run Tests
+mvn test
+
+---
+
+## 💾 Database
+The project uses a local SQLite file:
+gomoku.db
+
+---
+
+## 👩‍💻 Author
+Sona Nazaryan
+Stipendium Hungaricum Scholar
+University of Nyíregyháza – Computer Science BSc
+
