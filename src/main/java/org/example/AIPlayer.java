@@ -17,9 +17,8 @@ public class AIPlayer extends Player {
         int rows = board.getRows();
         int cols = board.getCols();
         char my = getSymbol();
-        char opp = (my == 'X') ? 'O' : 'X'; //TODO
+        char opp = (my == 'X') ? 'O' : 'X';
 
-        // 1) Try to win
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (board.isEmptyCell(r, c) && board.wouldWin(r, c, my)) {
@@ -28,7 +27,6 @@ public class AIPlayer extends Player {
             }
         }
 
-        // 2) Try to block opponent
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (board.isEmptyCell(r, c) && board.wouldWin(r, c, opp)) {
@@ -61,7 +59,6 @@ public class AIPlayer extends Player {
         return new int[]{rr, cc};
     }
 
-    // Simple heuristic: count non-empty neighbors in a radius; weighting closer cells more
     private int adjacencyScore(Board board, int row, int col, int radius) {
         int score = 0;
         for (int dr = -radius; dr <= radius; dr++) {
@@ -72,7 +69,6 @@ public class AIPlayer extends Player {
                 if (r < 0 || c < 0 || r >= board.getRows() || c >= board.getCols()) continue;
                 char cell = board.getCell(r, c);
                 if (cell != '.') {
-                    // nearer neighbors count more
                     int dist = Math.max(Math.abs(dr), Math.abs(dc));
                     score += (radius - dist + 1);
                 }

@@ -33,7 +33,6 @@ public class Game {
             board.printBoard();
 
             int r, c;
-            //TODO remove Player getMove logic and just call the method
             int[] move = current.getMove(board);
             r = move[0];
             c = move[1];

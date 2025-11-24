@@ -29,7 +29,6 @@ public class Player {
     }
 
     public int[] getMove(Board board) {
-        //TODO add logic
         System.out.println(name + "'s turn (" + symbol + ")");
         System.out.print("Enter row: ");
         int r = scanner.nextInt();

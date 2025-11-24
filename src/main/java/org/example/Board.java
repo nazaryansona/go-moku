@@ -51,10 +51,10 @@ public class Board {
     }
 
     public boolean checkWin(int row, int col, char symbol) {
-        return checkDirection(row, col, symbol, 1, 0) || // horizontal
-                checkDirection(row, col, symbol, 0, 1) || // vertical
-                checkDirection(row, col, symbol, 1, 1) || // diagonal ↘
-                checkDirection(row, col, symbol, 1, -1);  // diagonal ↙
+        return checkDirection(row, col, symbol, 1, 0) ||
+                checkDirection(row, col, symbol, 0, 1) ||
+                checkDirection(row, col, symbol, 1, 1) ||
+                checkDirection(row, col, symbol, 1, -1);
     }
 
     private boolean checkDirection(int row, int col, char symbol, int dr, int dc) {
@@ -76,8 +76,6 @@ public class Board {
         return count;
     }
 
-    // ---------- New helper methods for safe "what-if" checks ----------
-
     public int getRows() { return rows; }
     public int getCols() { return cols; }
     public char getCell(int r, int c) { return grid[r][c]; }
@@ -88,7 +86,6 @@ public class Board {
      */
     public boolean wouldWin(int row, int col, char symbol) {
         if (!isEmptyCell(row, col)) return false;
-        // placing here would act like an extra symbol at (row,col)
         if (wouldWinDirection(row, col, symbol, 1, 0)) return true;
         if (wouldWinDirection(row, col, symbol, 0, 1)) return true;
         if (wouldWinDirection(row, col, symbol, 1, 1)) return true;
