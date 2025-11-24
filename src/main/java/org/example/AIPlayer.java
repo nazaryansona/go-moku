@@ -12,11 +12,12 @@ public class AIPlayer extends Player {
         super(name, symbol);
     }
 
+    @Override
     public int[] getMove(Board board) {
         int rows = board.getRows();
         int cols = board.getCols();
         char my = getSymbol();
-        char opp = (my == 'X') ? 'O' : 'X';
+        char opp = (my == 'X') ? 'O' : 'X'; //TODO
 
         // 1) Try to win
         for (int r = 0; r < rows; r++) {

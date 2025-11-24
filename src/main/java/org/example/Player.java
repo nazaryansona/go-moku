@@ -19,4 +19,8 @@ public class Player {
     public char getSymbol() {
         return symbol;
     }
+
+    public int[] getMove(Board board) {
+        //TODO add logic
+    }
 }

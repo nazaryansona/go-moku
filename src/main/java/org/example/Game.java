@@ -10,14 +10,14 @@ import java.util.logging.SimpleFormatter;
  */
 public class Game {
     private final Board board;
-    private final Player human;
-    private final AIPlayer ai;
+    private final Player player1;
+    private final Player player2;
     private final Logger logger;
 
-    public Game(int rows, int cols, Player human, AIPlayer ai) throws Exception {
+    public Game(int rows, int cols, Player player1, Player player2) throws Exception {
         this.board = new Board(rows, cols);
-        this.human = human;
-        this.ai = ai;
+        this.player1 = player1;
+        this.player2 = player2;
 
         logger = Logger.getLogger("GameLogger");
         FileHandler fh = new FileHandler("gomoku.log", true);
@@ -27,12 +27,13 @@ public class Game {
 
     public void start() {
         Scanner sc = new Scanner(System.in);
-        Player current = human;
+        Player current = player1;
 
         while (true) {
             board.printBoard();
 
             int r, c;
+            //TODO remove Player getMove logic and just call the method
             if (current instanceof AIPlayer) {
                 int[] move = ((AIPlayer) current).getMove(board);
                 r = move[0];
@@ -61,7 +62,7 @@ public class Game {
                 break;
             }
 
-            current = (current == human) ? ai : human;
+            current = (current == player1) ? player2 : player1;
         }
 
         sc.close();

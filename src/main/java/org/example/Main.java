@@ -1,12 +1,12 @@
 package org.example;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
         try {
-            Player human = PlayerFactory.createPlayer("human", "You", 'X');
-            Player ai = PlayerFactory.createPlayer("AI", "Computer", 'O');
+            Player human = PlayerFactory.createPlayer("You", "X");
+            Player ai = PlayerFactory.createAiPlayer("Computer", 'O');
 
-            Game game = new Game(15, 15, human, (AIPlayer) ai);
+            Game game = new Game(15, 15, human, ai);
             game.start();
         } catch (Exception e) {
             e.printStackTrace();
