@@ -8,7 +8,7 @@ import java.util.Random;
 public class AIPlayer extends Player {
     private final Random random = new Random();
 
-    public AIPlayer(String name, char symbol) {
+    public AIPlayer(String name, SymbolEnum symbol) {
         super(name, symbol);
     }
 
@@ -37,13 +37,12 @@ public class AIPlayer extends Player {
             }
         }
 
-        // 3) Heuristic: score empty cells by adjacency to any stone
         int bestR = -1, bestC = -1;
         int bestScore = -1;
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (!board.isEmptyCell(r, c)) continue;
-                int score = adjacencyScore(board, r, c, 2); // radius 2
+                int score = adjacencyScore(board, r, c, 2);
                 if (score > bestScore) {
                     bestScore = score;
                     bestR = r; bestC = c;

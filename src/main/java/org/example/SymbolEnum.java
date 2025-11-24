@@ -1,6 +1,6 @@
 package org.example;
 
 public enum SymbolEnum {
-    X,
+    X ,
     O
 }

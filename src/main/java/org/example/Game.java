@@ -34,18 +34,11 @@ public class Game {
 
             int r, c;
             //TODO remove Player getMove logic and just call the method
-            if (current instanceof AIPlayer) {
-                int[] move = ((AIPlayer) current).getMove(board);
-                r = move[0];
-                c = move[1];
-                System.out.println(current.getName() + " plays at (" + r + ", " + c + ")");
-            } else {
-                System.out.println(current.getName() + "'s turn (" + current.getSymbol() + ")");
-                System.out.print("Enter row: ");
-                r = sc.nextInt();
-                System.out.print("Enter column: ");
-                c = sc.nextInt();
-            }
+            int[] move = current.getMove(board);
+            r = move[0];
+            c = move[1];
+            System.out.println(current.getName() + " plays at (" + r + ", " + c + ")");
+
 
             if (!board.placeMove(r, c, current.getSymbol())) {
                 System.out.println("Invalid move, try again!");
