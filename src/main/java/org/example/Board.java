@@ -94,7 +94,7 @@ public class Board {
     }
 
     private boolean wouldWinDirection(int row, int col, char symbol, int dr, int dc) {
-        int count = 1; // the simulated piece at (row,col)
+        int count = 1;
         count += countInDirection(row, col, symbol, dr, dc);
         count += countInDirection(row, col, symbol, -dr, -dc);
         return count >= 5;

@@ -35,6 +35,5 @@ public class Player {
         System.out.print("Enter column: ");
         int c = scanner.nextInt();
         return new int[]{r, c};
-
     }
 }

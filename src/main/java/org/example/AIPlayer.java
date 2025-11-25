@@ -50,7 +50,6 @@ public class AIPlayer extends Player {
 
         if (bestR != -1) return new int[]{bestR, bestC};
 
-        // fallback random
         int rr, cc;
         do {
             rr = random.nextInt(rows);

@@ -8,7 +8,7 @@ public class BoardTest {
     void testPlaceMove() {
         Board b = new Board(15, 15);
         assertTrue(b.placeMove(7, 7, 'X'));
-        assertFalse(b.placeMove(7, 7, 'O')); // already occupied
+        assertFalse(b.placeMove(7, 7, 'O'));
     }
 
     @Test
@@ -41,7 +41,6 @@ public class BoardTest {
     @Test
     void testWouldWin() {
         Board b = new Board(15, 15);
-        // set four in a row
         for (int i = 0; i < 4; i++) b.placeMove(0, i, 'X');
         assertTrue(b.wouldWin(0, 4, 'X'), "Placing X at (0,4) should be winning");
     }
